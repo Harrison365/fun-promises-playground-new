@@ -1,3 +1,5 @@
+test test
+
 # fun-promises-playground
 
 To get used to using promises, we have put together some challenges below for you to complete. Use Node to run your code for each challenge, e.g.
@@ -18,7 +20,7 @@ _**Hint:** If you are getting a 'no such file' error with your readFile path, th
 
 ### 2. use inquirer to ask for a name and log a greeting
 
-You will need to install the [inquirer](https://github.com/SBoudrias/Inquirer.js#installation) npm package (`npm install inquirer@^8.0.0`). 
+You will need to install the [inquirer](https://github.com/SBoudrias/Inquirer.js#installation) npm package (`npm install inquirer@^8.0.0`).
 You will need install version 8! Once installed require `inquirer` into the `2-greet.js` file.
 
 Use `inquirer` to ask for your name when you run the file with `node`, and then log `"Hello <name>!"` to the console.
