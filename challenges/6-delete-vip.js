@@ -1,17 +1,17 @@
 const fs = require("fs/promises");
 const inquirer = require("inquirer");
 
-
-const globalArr = []
+const globalArr = [];
+let globalChoice = "";
 
 fs.readFile("./vip-list.txt", "utf8")
   .then((contents) => {
     return contents.split("\n");
   })
   .then((arr) => {
-   arr.forEach((person) => {
-   globalArr.push(person)
-})
+    arr.forEach((person) => {
+      globalArr.push(person);
+    });
     return inquirer.prompt([
       {
         type: "list",
@@ -22,12 +22,15 @@ fs.readFile("./vip-list.txt", "utf8")
     ]);
   })
   .then((answer) => {
-   const shorterArr = globalArr.filter((person) => {
-      return person !== answer.selection
-    })
-    const shorterStr = shorterArr.join("\n")
-    console.log(shorterStr)
-    // fs.writeFile("/vip-list.txt", shorterArr
+    globalChoice = answer.selection;
+    const shorterArr = globalArr.filter((person) => {
+      return person !== answer.selection;
+    });
+    const shorterStr = shorterArr.join("\n");
+    return fs.writeFile("./vip-list.txt", shorterStr, "utf8");
+  })
+  .then(() => {
+    console.log(`${globalChoice} was successfully deleted from vip-list.txt`);
   })
   .catch((err) => {
     console.log(err);
