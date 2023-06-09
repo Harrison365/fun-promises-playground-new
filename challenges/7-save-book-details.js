@@ -17,11 +17,11 @@ inquirer
     },
   ])
   .then((choice) => {
-    author = choice;
+    author = choice.author;
     return bookApi.get(choice.author);
   })
   .then((bookData) => {
-    let titlesString = `${author.author} wrote:\n`;
+    let titlesString = `${author} wrote:\n`;
     bookData.data.items.forEach((book) => {
       titlesString += book.volumeInfo.title + "\n";
     });
