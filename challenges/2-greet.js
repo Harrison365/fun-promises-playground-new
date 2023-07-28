@@ -1,4 +1,5 @@
-//npm i inquirer(with version)
+//npm i inquirer (with version) (npm install --save inquirer@^8.0.0)
+
 const inquirer = require("inquirer");
 
 inquirer
